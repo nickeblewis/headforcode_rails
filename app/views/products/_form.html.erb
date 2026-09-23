@@ -1,0 +1,25 @@
+<%= form_with model: product, multipart: true do |form| %>
+	<div class="space-y-2">
+		<%= form.label :title, class: "block text-sm font-bold text-slate-700" %>
+		<%= form.text_field :title, class: "block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-950 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+	</div>
+
+	<div class="mt-5 space-y-2">
+		<%= form.label :description, class: "block text-sm font-bold text-slate-700" %>
+		<%= form.text_area :description, rows: 5, class: "block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-950 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+	</div>
+
+	<div class="mt-5 space-y-2">
+		<%= form.label :image, class: "block text-sm font-bold text-slate-700" %>
+		<%= form.file_field :image, class: "block w-full rounded-lg border border-slate-300 bg-slate-50 text-sm text-slate-600 file:mr-4 file:border-0 file:bg-slate-900 file:px-4 file:py-3 file:font-bold file:text-white hover:file:bg-slate-700" %>
+	</div>
+
+	<div class="mt-5 space-y-2">
+		<%= form.label :price, class: "block text-sm font-bold text-slate-700" %>
+		<%= form.text_field :price, class: "block w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-950 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-amber-500 focus:ring-2 focus:ring-amber-200" %>
+	</div>
+
+	<div class="mt-8">
+		<%= form.submit product.persisted? ? "Save changes" : "Create product", class: "inline-flex w-full items-center justify-center rounded-lg bg-amber-500 px-5 py-3 text-sm font-bold text-slate-950 shadow-sm transition hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 sm:w-auto" %>
+	</div>
+<% end %>
