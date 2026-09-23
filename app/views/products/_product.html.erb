@@ -1,7 +1,7 @@
 <div id="<%= dom_id product %>" class="flex-1">
   <div class="mb-5 flex items-start justify-between gap-4">
     <div>
-      <p class="mb-1 text-xs font-bold uppercase tracking-[0.16em] text-amber-600">Product</p>
+      <div class="mb-1 text-xs font-bold uppercase tracking-[0.16em] text-amber-600">Product</div>
       <h2 class="text-xl font-extrabold tracking-tight text-slate-950"><%= product.title %></h2>
     </div>
     <span class="shrink-0 rounded-full bg-amber-100 px-3 py-1 text-sm font-bold text-amber-800">$<%= product.price %></span>
@@ -15,5 +15,8 @@
     <% end %>
   </div>
 
-  <p class="line-clamp-3 text-sm leading-6 text-slate-500"><%= product.description %></p>
+  <p class="line-clamp-3 text-sm leading-6 text-slate-500">
+    <span class="sr-only">Title: <%= product.title %>. Price: <%= product.price %>. </span>
+    <%= product.description %>
+  </p>
 </div>

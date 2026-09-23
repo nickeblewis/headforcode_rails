@@ -21,7 +21,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-white text-stone-950 antialiased dark:bg-stone-950 dark:text-white">
+    <main class="mx-auto grid max-w-6xl gap-10 overflow-hidden px-5 py-6 sm:px-8 lg:px-0">
+      <header class="flex items-center justify-between gap-6 border-b border-stone-200 pb-5 dark:border-stone-800">
+        <%= link_to "HeadForCode", root_path, class: "text-xl font-black tracking-tight text-stone-950 dark:text-white" %>
+        <nav class="flex items-center gap-5 text-sm font-semibold text-stone-600 dark:text-stone-300">
+          <%= link_to "Blog", posts_path, class: "hover:text-teal-700 dark:hover:text-teal-300" %>
+          <%= link_to "Products", products_path, class: "hover:text-teal-700 dark:hover:text-teal-300" %>
+          <%= link_to "Tags", tags_path, class: "hover:text-teal-700 dark:hover:text-teal-300" %>
+        </nav>
+      </header>
+      <%= yield %>
+      <footer class="border-t border-stone-200 py-8 text-sm text-stone-500 dark:border-stone-800 dark:text-stone-400">
+        &copy; <%= Time.current.year %> Nick Lewis. All rights reserved.
+      </footer>
+    </main>
   </body>
 </html>

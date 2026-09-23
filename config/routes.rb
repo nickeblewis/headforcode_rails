@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root "posts#index"
+  get "posts", to: "posts#index", as: :posts
+  get "posts/:slug", to: "posts#show", as: :post
+  get "categories/:slug", to: "posts#category", as: :category_posts
+  get "tags", to: "posts#tags_index", as: :tags
+  get "tags/:slug", to: "posts#tags", as: :tag_posts
   resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

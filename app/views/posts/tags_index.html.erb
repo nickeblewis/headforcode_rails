@@ -1,0 +1,7 @@
+<% content_for :title, "Tags" %>
+<h1 class="text-4xl font-black tracking-tight text-stone-950 dark:text-white">Tags</h1>
+<div class="mt-8 flex flex-wrap gap-3">
+  <% @tags.each do |tag| %>
+    <%= link_to "##{tag.name}", tag_posts_path(tag.slug), class: "rounded-full bg-stone-100 px-4 py-2 text-sm font-semibold text-stone-700 hover:bg-teal-100 hover:text-teal-800 dark:bg-stone-800 dark:text-stone-200" %>
+  <% end %>
+</div>

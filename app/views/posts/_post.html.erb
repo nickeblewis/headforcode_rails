@@ -1,0 +1,22 @@
+<article class="group overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-stone-800 dark:bg-stone-900">
+  <% if post.hero_image.attached? %>
+    <%= link_to post_path(post), class: "block overflow-hidden" do %>
+      <%= image_tag post.hero_image, class: "h-56 w-full object-cover transition duration-300 group-hover:scale-[1.02]", alt: post.hero_image_alt.presence || post.title %>
+    <% end %>
+  <% end %>
+
+  <div class="flex flex-col gap-4 p-6">
+    <div class="flex items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 dark:text-teal-300">
+      <%= link_to post.category.name, category_posts_path(post.category.slug), class: "hover:underline" %>
+      <span><%= post.published_at&.strftime("%b %-d, %Y") %></span>
+    </div>
+    <div>
+      <h2 class="text-2xl font-semibold tracking-tight text-stone-950 dark:text-white"><%= link_to post.title, post_path(post), class: "hover:text-teal-700 dark:hover:text-teal-300" %></h2>
+      <p class="mt-3 line-clamp-3 leading-7 text-stone-600 dark:text-stone-300"><%= post.description %></p>
+    </div>
+    <div class="flex items-center justify-between text-sm text-stone-500 dark:text-stone-400">
+      <span><%= pluralize(post.reading_time_minutes, "min") %> read</span>
+      <%= link_to "Read post", post_path(post), class: "font-bold text-teal-700 hover:underline dark:text-teal-300" %>
+    </div>
+  </div>
+</article>
